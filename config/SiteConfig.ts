@@ -9,12 +9,12 @@ export default {
   defaultBg: '/assets/bg/1.jpg', // default post background header
   favicon: 'src/favicon.png', // Your image for favicons. You can find it in the /src folder
   siteDescription: 'Typescript Power Blog with big typography', // Your site description
-  author: 'Majid Hajian', // Author for schemaORGJSONLD
+  author: 'Myeonggyu Lee', // Author for schemaORGJSONLD
   siteLogo: '/assets/logo.png', // Image for schemaORGJSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: '@mhadaily', // Twitter Username - Optional
-  ogSiteName: 'mhadaily', // Facebook Site Name - Optional
+  userTwitter: '', // Twitter Username - Optional
+  ogSiteName: 'Myeonggyu Lee', // Facebook Site Name - Optional
   ogLanguage: 'en_US', // Facebook Language
 
   // Manifest and Progress color
