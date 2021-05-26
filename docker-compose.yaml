@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  blog:
+    networks:
+        bridgenet: {}
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/usr/share/nginx/html
+    labels:
+      - traefik.http.routers.blog.rule=Host(`blog.mglee.dev`) || Path(`/blog`)
+      - traefik.http.services.blog.loadbalancer.server.port=80
+      - traefik.http.routers.blog.tls.certResolver=gateResolver
+networks:
+  bridgenet:
+    external: true
+    name: traefik_default
