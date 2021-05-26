@@ -12,7 +12,7 @@ const Homepage = styled.main`
   display: flex;
   height: 100vh;
   flex-direction: row;
-  animation: 1.5s ease-in-out 0.2s both slide;
+  animation: 0.3s ease-in-out 0.1s both slide;
   @media ${media.tablet} {
     height: 100%;
     flex-direction: column;
@@ -52,7 +52,7 @@ const GridRow: any = styled.div`
 const HomepageContent = styled.div<{ center?: boolean }>`
   max-width: 30rem;
   text-align: ${(props) => (props.center ? 'center' : 'left')};
-  animation: 1.5s ease-in-out 0.6s both fadeIn;
+  animation: 0.5s ease-in-out 0.6s both fadeIn;
 `;
 
 export default ({ data }: PageProps) => {
@@ -66,10 +66,10 @@ export default ({ data }: PageProps) => {
             <HomepageContent center={true}>
               <img src={config.siteLogo} alt={config.siteTitle} />
               <h1>
-                Hi. I am <br />
-                Majid Hajian
+                MyeongGyu Lee <br />
+                
               </h1>
-              <p>I write about Dart, Flutter, JavaScript, Angular, React, and ...</p>
+              <p>I write about Docker, K8s, Typescript, JavaScript, React, and ...</p>
               <Link to="/contact">
                 <Button big={true}>
                   <svg
@@ -93,7 +93,7 @@ export default ({ data }: PageProps) => {
                   >
                     <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
                   </svg>
-                  Blog
+                  Articles
                 </Button>
               </Link>
             </HomepageContent>
@@ -105,7 +105,7 @@ export default ({ data }: PageProps) => {
                 Though I am a results-driven softiware architect and developer by day who have
                 converted inactive designs to fully interactive, well-developed, accessible and
                 standards-based user interfaces. I am completely enthusiast and passionate about
-                Flutter/Dart and JavaScript world.
+                docker/k8s and JavaScript world.
               </p>
               <hr />
               <h2>Latest Blog</h2>
