@@ -39,7 +39,7 @@ export default (props: Props) => {
           <SEO postPath={post.fields.slug} postNode={post} postSEO={true} />
           <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
           <Header banner={post.frontmatter.banner}>
-            <Link to="/">{config.siteTitle}</Link>
+            <Link to="/"><b>{config.siteTitle}</b></Link>
             <SectionTitle>{post.frontmatter.title}</SectionTitle>
             <Subline>
               {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash; In{' '}

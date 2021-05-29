@@ -14,7 +14,7 @@ const HeaderWrapper = styled.header<{ banner: string }>`
     url(${(props) => props.banner}) no-repeat;
   background-size: cover;
   padding: 8rem 2rem 10rem;
-  text-align: center;
+  // text-align: center;
   @media ${media.tablet} {
     padding: 4rem 2rem 6rem;
   }

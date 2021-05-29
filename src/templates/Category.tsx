@@ -15,7 +15,7 @@ export default (props: PageProps) => {
     <Layout>
       <Helmet title={`${categoryName} | ${config.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to="/"><b>{config.siteTitle}</b></Link>
         <SectionTitle>Category &ndash; {categoryName}</SectionTitle>
         <Subline sectionTitle={true}>
           {subline} (See <Link to="/categories">all categories</Link>)

@@ -15,7 +15,7 @@ export default (props: PageProps) => {
     <Layout>
       <Helmet title={`${'Tags'} | ${config.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to="/"><b>{config.siteTitle}</b></Link>
         <SectionTitle>Tag &ndash; {tagName}</SectionTitle>
         <Subline sectionTitle={true}>
           {subline} (See <Link to="/tags">all tags</Link>)

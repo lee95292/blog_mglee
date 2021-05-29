@@ -10,7 +10,7 @@ export default () => {
       <Wrapper>
         <Helmet title={`404 not found | ${config.siteTitle}`} />
         <Header>
-          <Link to="/">{config.siteTitle}</Link>
+          <Link to="/"><b>{config.siteTitle}</b></Link>
         </Header>
         <Content>
           <h1>NOT FOUND</h1>

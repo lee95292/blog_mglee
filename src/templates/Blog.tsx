@@ -23,7 +23,7 @@ export default (props: Props) => {
     <Layout>
       <Helmet title={`Blog | ${config.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to="/"><b>{config.siteTitle}</b></Link>
         <SectionTitle uppercase={true}>Latest stories ({totalCount})</SectionTitle>
       </Header>
       <Wrapper>

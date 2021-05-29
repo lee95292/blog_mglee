@@ -55,12 +55,20 @@ const HomepageContent = styled.div<{ center?: boolean }>`
   animation: 0.5s ease-in-out 0.6s both fadeIn;
 `;
 
+const LatestArea = styled.div<{}>`
+  display: flex;
+  justify-content: space-between;
+  .allArticles{
+    margin-top: 2%;
+  }
+`
+
 export default ({ data }: PageProps) => {
   const { edges, totalCount } = data.allMarkdownRemark;
   return (
     <Layout>
       <Wrapper fullWidth={true}>
-        <Helmet title={`Homepage | ${config.siteTitle}`} />
+        <Helmet title={`${config.siteTitle}`} />
         <Homepage>
           <GridRow background={true}>
             <HomepageContent center={true}>
@@ -108,7 +116,12 @@ export default ({ data }: PageProps) => {
                 docker/k8s and JavaScript world.
               </p>
               <hr />
-              <h2>Latest Blog</h2>
+              <LatestArea>
+                <h2>Latest Articles</h2>
+                <p className={'allArticles'}>
+                  <Link to={'/blog'}>All articles ({totalCount})</Link>
+                </p>
+              </LatestArea>
               {edges.map((post) => (
                 <Article
                   title={post.node.frontmatter.title}
@@ -120,9 +133,6 @@ export default ({ data }: PageProps) => {
                   key={post.node.fields.slug}
                 />
               ))}
-              <p className={'textRight'}>
-                <Link to={'/blog'}>All articles ({totalCount})</Link>
-              </p>
             </HomepageContent>
           </GridRow>
         </Homepage>
@@ -132,7 +142,7 @@ export default ({ data }: PageProps) => {
 };
 export const IndexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
       totalCount
       edges {
         node {

@@ -1,6 +1,6 @@
 ---
 date: "2021-05-15"
-title: "Traefik: 오픈소스 네트워크 게이트웨이"
+title: "tyk나 nginx와"
 category: "Operation"
 tags: ['traefik', 'opensource']
 banner: "/assets/bg/2.jpg"

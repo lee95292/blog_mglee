@@ -4,13 +4,12 @@ import { Link } from 'gatsby';
 import { Layout, Wrapper, Header, Button, Content, SectionTitle } from '../components';
 
 import config from '../../config/SiteConfig';
-
 export default () => {
   return (
     <Layout>
       <Helmet title={`Contact | ${config.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to="/"><b>{config.siteTitle}</b></Link>
         <SectionTitle uppercase={true}>Contact</SectionTitle>
       </Header>
       <Wrapper>
@@ -42,7 +41,7 @@ export default () => {
               Linkedin
             </Button>
           </a>
-          <a href="https://www.majidhajian.com">
+          <a href="https://lee95292.github.io">
             <Button big={true}>
               <svg
                 width="1792"

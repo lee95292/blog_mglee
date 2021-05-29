@@ -7,11 +7,12 @@ import { Subline } from './Subline';
 const Post = styled.article`
   display: flex;
   flex-direction: column;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
+  font-size: 27px;
   position: relative;
   text-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.15);
   margin-bottom: 0.75rem;
@@ -19,7 +20,7 @@ const Title = styled.h2`
 
 const Initiale = styled.span`
   position: absolute;
-  font-size: 7rem;
+  font-size: 5rem;
   transform: translate(-50%, -50%);
   opacity: 0.08;
   user-select: none;
