@@ -6,9 +6,10 @@ services:
         bridgenet: {}
     image: nginx:latest
     ports:
-      - "8080:80"
+      - "8082:80"
     volumes:
       - ./public:/usr/share/nginx/html
+      - ./conf:/etc/nginx/conf.d
     labels:
       - traefik.http.routers.blog.rule=Host(`blog.mglee.dev`) || Path(`/blog`)
       - traefik.http.services.blog.loadbalancer.server.port=80
