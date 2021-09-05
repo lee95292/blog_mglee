@@ -1,0 +1,104 @@
+---
+layout: post
+title: "[Continue]devlog"
+date: "2020-05-03"
+category:
+---
+
+> Devlog는 2020년 5월 3일부터 작성하였습니다.
+
+# 목차
+
+- [Junit-testfile-generator](#Junit-testfile-generator)
+- [Testfile Generator](#Testfile-generator)
+
+# Junit-testfile-generator
+
+### [VSCode, Archived]
+
+[github](https://github.com/lee95292/JunitTestGeneratorForVSCode)
+
+### Introduce
+
+Java프로젝트 중 Junit을 사용해 테스트를 실행하는 유저를 위한 VSCode Extension.  
+테스트 경로에 테스트파일을 생성하도록 해주는 컨텍스트(우클릭) 메뉴 제공
+
+---
+
+### 일지
+
+- 2020.05.03
+
+개발을 종료하고 범용 버전으로 업그레이드하기 위해 [Testfile generator](#Testfile-generator)를 다시 시작하려한다.
+
+---
+
+### 사후분석
+
+그냥 내가 혼자 쓰려고 개발한 익스텐션 치고는 괜찮았다. 잘 쓰고 있었는데, 설치 수가 500명이 넘어가며 평가가 한두개씩 달리기 시작했고, 다른 사용자들까지 고려해야했다.
+
+한번 고치기 시작하니까 기존 설계를 뜯어고치고, JUnit뿐만 아니라 다른 테스트 프레임워크에서도 지원하고싶다는 욕심이 생겼다.
+
+표면적으로는 이름을 고치기 위해 extension을 새로 만들어야하고, 근본적으로는 목적부터가 다른 extension이므로 새로 만드는게 맞다.
+
+**1000+ install**기록은 조금 아쉽지만, 새로 만드는 프로젝트에서 뛰어넘으면 된다고 생각하고 다시 시작하려한다.
+
+# Testfile generator
+
+### \#VSCode, \#Continue
+
+### Introduce
+
+Junit, Jest, Mocha 등 테스트 프레임워크들에 대한 테스트파일 생성을 도와주는 VScode Extension
+
+---
+
+### 일지
+
+- 2020.05.03 설계 및 동기
+
+같은 vscode extension인 **gitignore generator**를 보고 영감을 얻어 testfile generator를 시작하려 한다.  
+이 프로젝트는 [gitignore.io](gitignore.io) API를 사용해 gitignore파일을 제공한다. 물론 이 API는 다른 유저가 만들었다.
+
+나에겐 Test framework(jest,junit,mocha, etc..)의 통합 템플릿 파일을 제공하는 API는 없으므로, API 설계부터 새로 시작해야한다.
+
+```url
+/api/[testframework]/[version]/[type]
+```
+
+기본적으로는 위의 방식으로 호출 가능한 API를 만들고싶다 응답으로는 Testfile Template이고.
+
+예를 들어 내가 만든 서버의 URL이 teststub.io 라고 한다면, 아래와 같은 시나리오다.
+
+```
+Request :
+https://teststub.io/junit/default/default
+
+Response
+
+package TEST;
+    import org.junit.Test;
+    import org.junit.Before;
+
+    public class TEST {
+
+        @Before
+        public void setup(){
+
+        }
+
+        @Test
+        public void test() {
+        }
+    }
+```
+
+type에는 테스트파일의 형태를 나타내는 여러가지 값들이 들어갈 수 있다.
+
+---
+
+### 기본기능
+
+1. 커멘드를 통해서프레임워크와 버전이 같더라도 구분되는 템플릿을 제공한다.
+
+2. 컨텍스트 메뉴를 통해 버전과 프레임웤이 일치하는 기본 테스트 템플릿을 제공한다.

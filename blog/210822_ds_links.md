@@ -1,0 +1,177 @@
+---
+date: "2021-08-22"
+title: "데이터사이언스 링크 모음"
+category: "datascience"
+tags: ['datascience', 'machinelearning']
+banner: "/assets/bg/2.jpg"
+---
+
+* Machine Learning
+  * [XGBoost 파라미터 설명_kaggle](https://www.kaggle.com/prashant111/a-guide-on-xgboost-hyperparameters-tuning)
+  * [XGBoost 파라미터 설명](https://xgboost.readthedocs.io/en/latest/parameter.html)
+  * [정규화된 선형회귀(ratsgo님 블로그)](https://ratsgo.github.io/machine%20learning/2017/05/22/RLR/)
+
+
+---
+  * [XGBoost 파라미터 설명_kaggle](https://www.kaggle.com/prashant111/a-guide-on-xgboost-hyperparameters-tuning) 번역 및 정리
+    ## General params
+    ### 2.1.1 booster 
+     - 부스터 파라미터는  어떤 부스터를 사용할것인지에 대한 파라미터 
+     - 각각의 iteration에 어떤 부스터를 사용할지 지정할 수 있도록 함 
+     - __gbtree, gblinear, dart__  세개의 옵션이 있다.
+       - gbtree, dart는 트리기반 모델이고, gblinear는 선형 모델이다
+    ### 2.1.2 verbosity
+        기본값: 1
+    - 결과값을 출력하는지에 대한 파라미터 (0: 메시지없음, 1:경고메시지, 2:정보, 3:디버그)
+
+    ### 2.1.3 nthread
+        기본값: OS 설정값, 없다면 가용한 최대한의 스레드 수
+    - XGBoost에서 사용하는 병렬 스레드의 개수
+    - 시스템에서 사용할 코어와 스레드의 개수
+    - 모든 코어를 사용하고싶다면, 기본값을 사용하기
+
+    __disable_default_eval_metric[기본값 0], num_pbuffer[자동설정값], num_feature[자동설정값]__ 과 같은 여러 전역 파라미터들이 있다. 하지만, 이는 대부분 XGBoost가 자동으로 설정해주니 더이상 논의하지 않는다.
+
+    ## Booster Parameters
+    * 선형 부스터와 트리 부스터가 있다.
+    * 선형 부스터에 비해 트리 부스터가 월등히 성능이 좋고 자주 쓰이므로, 트리 부스터에 대해서만 정리한다
+    
+
+    ### 2.2.1 eta
+        기본값 0.3, learning_rate와 같은 의미의 파라미터
+    - GBM에서의 learning_rate와 유사한 파라미터이다.
+    - 과적합 방지를 위한 스텝 크기를 축소하는 방식이다.
+    - 각 부스팅 단계 후에 새로운 특징에 대한 가중치를 직접 가져올 수 있고, eta 변수는 부스팅 과정을 더 안전하게 만들기 위해 특징의 가중치를 축소시킬 수 있다.
+    - 이는 각 스텝에서의 가중치를 줄여 모델이 조금 더 robust(무뎌지게)한다
+    - [0~1] 범위의 값이고, 보통 0.01~2사이의 값을 지정한다.
+
+    ### 2.2.2 gamma
+        기본값 0, min_split_loss와 비슷함
+    - 트리의 노드가 분할했을 경우, 손실함수에서 양의 감소가 있을경우에만 분할한다.
+    - Gamma는 노드가 분리되기 위한 최소의 감소값을 나타낸다
+    - 큰 값일수록 알고리즘이 더 보수적으로 동작하도록 한다. 이는 손실함수에 다양하게 의존하기 때문에 그에 맞게 조절해야 한다.
+    - [0~무한대]의 값을 갖는다
+
+    ### 2.2.3 max_depth
+        기본값 6, GBM에서와 같이 tree 깊이의 최댓값을 나타낸다
+    - 높은 값이 표본의 특정 값과의 관계까지 학습하게 하는것처럼, 과적합을 컨트롤할 수 있다.
+    - 이 값을 올리는것은 모델을 복잡하고, 과적합의 가능성을 높힌다.
+    - The value 0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth.(손실유도정책에 관한 내용. 이해 X)
+    - 이 값을 높게 설정하면, XGBoost가 깊은 레벨의 트리를 학습하기 위해 많은 메모리를 사용하므로, 주의해햐 함.
+    - 0~무한의 범위
+    - CV를 사용해 튜닝하는것이 좋음
+    - 통상적으로 3-10의 값을 갖는다
+
+    ### 2.2.4 min_child_weight
+        기본값 1, 자식노드에 필요한 모든 노드 가중치의 최소 합을 지정.
+    - GBM에서의 min_child_leaf와 유사하지만, 관측치의 개수가 아닌 관측치 합의 최솟값이라는것에서 차이가 있다.
+    - 과적합을 막기 위해 사용한다
+    - 높은 값을 설정해 트리를 위해 지나치게 특정지어진 값과의 관계를 학습하는것을 방지한다.
+    - 너무 높은 값은 under-fitting(과소적합)을 일으킨다. 그러므로, CV를 통해 조절하자.
+    - min_child_weight값이 커질수록 보수적인 알고리즘이 된다.
+    - 0~무한 값을 갖는다
+
+    ### 2.2.5 max_delta_step
+        기본값 0, 
+
+    ### 2.2.6 subsample
+        기본값 1, 각 트리에서 임의로 샘플을 추출하기 위한 관측치의 비율을 나타낸다.
+    - 훈련 인스턴스의 하위표본의 비율.
+    - 0.5로 설정하면 트리를 훈련시키기 이전에 훈련데이터의 절반을 랜덤하게 표본으로 추출한다. 이를 통해 과적합을 방지한다.
+    - __subsampling__은 부스팅 과정에서 매 반복외 1회 시행한다.
+    - 낮은 값을 통해 알고리즘이 과적합을 막고, 보수적으로 동작할 수 있도록 하지만, 너무 적은 값은 과소추정을 발생시킨다.
+    - (0~1] 값을 가질 수 있으며, 보통 0.5~1의 값을 지정한다
+
+    ### 2.2.7 colsample_bytree, colsample_bylevel, colsample_bynode
+        기본값: 1, 열(colums)의 subsampling을 하기 위한 파라미터 모음
+    - 모든 colsample_by 파라미터는 (0,1] 값을 가질 수 있고, 1의 기본값을 가지며,  subsampling될 열의 비율을 결정한다.
+
+    - __colsample_bytree__ 는 각 트리가 생성될 때 이에 대해  subsampling할 열의 비율을 나타낸다.  subsampling은 트리가 생성될 때 한번 수행된다.
+
+    - __colsample_bylevel__ 은 각 레벨에서 열의 하위표본 비율이다.  subsampling은 트리에서 새로운 깊이 단계에 도달했을때마다 발생한다.
+
+    - __colsample_bynode__ 는 각 노드에서 열을  subsampling하는 비율이다.  subsampling은 분할이 일어날때마다 발생한다. 
+
+    - 각각 현재 트리,레벨,노드에 선택된 열 집합을  subsampling한다
+    - 각 파라미터는 누산되는 방식으로 동작하며, 각각을 0.5로 지정한 상태에서 64개의 특징을 부여하면, 각 분할에서 8개의 특징만이 남게된다.
+
+
+    ```
+    파라미터 lambda와 alpha는 정규화항에 대한 파라미터이므로, 정규화에 관한 이해가 필수적이다.  
+    https://ratsgo.github.io/machine%20learning/2017/05/22/RLR/ 를 통해 간단하게 정규화를 이해해보자.
+    ```
+
+    ### 2.2.8 lambda
+        기본값 1, 가중치에 대한 L2정규화 항( Ridge regression과 유사함)
+    - XGBoost에서 정규화 파트를 담당
+    - 이 값을 증가시키면, 모델을 보수적으로 만들 수 있음
+
+    ### 2.2.9 alpha
+        기본값 0, 가중치에 대한 L1 정규화 항 (Lasso regression과 유사함)
+    - 매우 높은 차원의 경우, 알고리즘이 더 빨리 동작하도록 구현할 수 있다.
+    - 이 값을 증가시키면 모델을 보수적으로 만들 수 있음
+
+    ### 2.2.10 tree_method
+        기본값 auto(문자열), XGBoost에서 사용할 트리 생성 알고리즘.
+    - XGBoost는 분산 훈련을 위한 approx, hist, gpu_hist 트리 메서드와, approx, gpu_hist를 통해 외부 메모리를 사용할 수 있도록 실험적으로 지원한다.
+    - [auto,exact,approx, hist,gpu_hist]를 사용할 수 있음
+    - auto: 휴리스틱 방법을 통해 가장 빠른 메서드를 사용함.
+      - 적가나 중간정도 크기의 데이셋은 exact greedy 메서드(exact)가 사용됨.
+      - 매우 큰 데이터셋에는 approximate 알고리즘(approx)가 사용됨
+      - 고전적인 방법으로, 단일 기기에서는 항상 exact greedy가 사용되기에, approximate 방법이 선택될 때 알림을 받게 된다.
+    - exact: exact greedy algorithm
+    - approx: 대략적인 분위수와 기울기 히스토그램을 통한 approximate greedy algorithm
+    - hist: approximate greedy algorithm을 최적화한 빠른 히스토그램. bins caching과 같이 일부의 성능 개선방법을 사용함.
+    - gpu_hist: hist알고리즘에 대한 GPU버전 구현
+
+    ### 2.2.11 scale_post_weight
+        기본값 1, 양과 음의 가중치 값의 균형을 조절한다
+    - 불균형한 클래스들이 있는 경우 유용하다.
+    - 높은 클래스의 불균형이 있는경우, 0보다 큰 값을 사용해 빠르게 수렴하도록 해야한다.
+    - 일반적으로 고려해야 하는 값 : __sum(negative instances) / sum(positive instances)__
+
+    ### 2.2.12 max_leaves
+        기본값 0, 추가하는 노드의 최댓값
+    - grow_policy=lossguide일때만 유효하게 동작
+
+    sketch_eps,updater, refresh_leaf, process_type, grow_policy, max_bin, predictor and num_parallel_tree 와 같은 다른 파라미터들이 있지만, [XGBoost 공식문서(파라미터 설명)](https://xgboost.readthedocs.io/en/latest/parameter.html)을 참고하자.
+
+    ---
+
+## Learning Task Parameters
+* 이러한 파라미터들은각 단계에서 계산할 최적 목적함수 검증방법을  정의하는데 사용한다.
+* 이 파라미터들은 학습과정과 그에 상응하는 학습 목적함수를 구체화하는데 사용한다. 
+
+### 2.3.1 objective
+    objective, 기본값: "reg:squerederror, 손실함수가 최소화해야하는 함수를 정의한다.
+* reg:squarederror: 손실값의 제곱으로 회귀
+* reg:squaredlogerror: 로그 손실인 1/2[log(pred)+1 - log(label+1)] 값의 제곱으로 회귀. 모든 입력값은 -1보다 커야하는 조건이 있음.
+* reg:logistic: 로지스틱 회귀.
+* binary:logistic: 이진 분류를 위한 로지스틱 회귀. 확률값(0~1)을 결과로 가짐.
+* binary:logitraw: 이진 분류를 위한 로지스틱 회귀, 로지스틱 변환 이전의 점수를 결과로 가짐.
+* binary:hinge: 이진 분류를 위한 hinge 손실. 확률값을 만들지 않고, 0또는 1의 예측결과를 가짐.
+* multi:softmax: 다중분류를 위한 softmax 손실. softmax를 통해 XGBoost가 다중 분류를 하고자 한다면, num_class값을 지정해야 한다.
+* multi:softprob: 위의 softmax와 같이, ndata nclass 행렬로 변환할 수 있는 벡터를 결과로 가진다. 각 class에 속하는 데이터의 예측확률값을 포함한다.
+
+### 2.3.2 eval_metric
+    eval_metric, 목적함수에 따라 기본값이 정해짐.
+* 데이터를 검증하기 위해 사용되는 지표.
+* 회귀에는 rmse, 분류에는 error, ranking에는 MAP(mean average prediction)이 기본값으로 지정된다.
+* 여러개의 검증 지표를 추가할 수 있다.
+* 파이썬 사용자는 지표들을 map이 아니라 list형태로 전달해야 한다.
+* 가장 보편적으로 사용되는 지표들이다.
+    * rmse: [root mean square error](https://en.wikipedia.org/wiki/Root-mean-square_deviation), 제곱 평균의 루트값 
+    * mae: [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error): 절댓값의 평균  
+    * logloss: [negative log-liklihood](https://en.wikipedia.org/wiki/Likelihood_function#Log-likelihood)
+    * error: 이진 분류에서 오차 비율( <= 0.5 ) #wrong cases / all cases 로 계산된다. 0.5보다 큰 인스턴스를 positive로 고려하고, 나머지를 negative instance로 고려할것이다.
+    * merror: 다중 분류에서 오차 비율이다. #wrong cases/ all cases로 계산된다.
+    * mlogloss: [Multiclass logloss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html) 
+    * auc: [Area under the curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_curve)
+    * aucpr: [Aread under the PR curve](https://en.wikipedia.org/wiki/Precision_and_recall)
+
+### 2.3.3 seed
+    seed, 기본값 0.
+* 난수 시드값.
+* R 패키지에서는 무시되어 set.seed()가 대신 사용된다.
+* 재생산 가능한 결과를 만들거나 파라미터를 튜닝할때 사용된다.
+
