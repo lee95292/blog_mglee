@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -22,6 +22,7 @@ const PostContent = styled.div`
   margin-top: 4rem;
 `;
 
+
 interface Props {
   data: {
     markdownRemark: Post;
@@ -32,6 +33,18 @@ interface Props {
 export default (props: Props) => {
   const { prev, next } = props.pathContext;
   const post = props.data.markdownRemark;
+  useEffect(() => {
+      let script = document.createElement("script");
+      let anchor = document.getElementById("uterances-comments");
+      script.setAttribute("src", "https://utteranc.es/client.js");
+      script.setAttribute("crossorigin","anonymous");
+      script.setAttribute("async", "true");
+      script.setAttribute("repo", "lee95292/lee95292.github.io");
+      script.setAttribute("issue-term", "title");
+      script.setAttribute( "theme", "github-light");
+      anchor?.appendChild(script);
+      console.log(anchor)
+  })
   return (
     <Layout>
       {post ? (
@@ -62,6 +75,7 @@ export default (props: Props) => {
                 </Subline>
               ) : null}
               <PrevNext prev={prev} next={next} />
+              <div id="uterances-comments"></div>
             </Content>
           </Wrapper>
         </>
