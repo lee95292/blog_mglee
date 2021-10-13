@@ -1,5 +1,5 @@
 ---
-date: "2021-08-25"
+date: "2021-10-04"
 title: "[Kaggle 커널분석 notebook] House price prediction"
 category: "datascience"
 tags: ['datascience', 'machinelearning']
@@ -7,7 +7,7 @@ banner: "/assets/bg/2.jpg"
 ---
 
 
-[House price prediction (top4% kernel)](https://www.kaggle.com/serigne/stacked-regressions-top-4-on-leaderboard) 필사.
+[House price prediction (top4% kernel)](https://www.kaggle.com/serigne/stacked-regressions-top-4-on-leaderboard) 참고.
 
 ## House price prediction 분석
 
@@ -15,7 +15,7 @@ banner: "/assets/bg/2.jpg"
 
 House price prediction 분석 -2 부터는 나의 기본코드를 개선할 것이다.
 
-[House price prediction (top4% kernel)](https://www.kaggle.com/serigne/stacked-regressions-top-4-on-leaderboard) 에서는 정규화, 대체, 인코딩 등의 전처리 과정을 사전 학습하고 상위 4%의 모델을 만드는 과정이 담긴 커널이다. 
+[House price prediction (top4% kernel)](https://www.kaggle.com/serigne/stacked-regressions-top-4-on-leaderboard) 에서는 정규화, 대체, 인코딩 등의 전처리 과정을 사전 학습하고 상위 4%의 모델을 만드는 과정이 담긴 커널이다. 이 커널에서 참조된 레퍼런스들을 집중적으로 참고할 것이다.
 
 
 [집값예측문제 개선과정](https://github.com/lee95292/houseprice-prediction-improve)을 git commit을 통해 남길 예정이니, 어떤 과정을 통해 개선했는지 궁금한 캐글러들은 확인해봐도 좋을듯 하다.

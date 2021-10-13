@@ -492,6 +492,10 @@ df_train.drop(df_train[df_train['Id']==524].index)
     .dataframe thead th {
         text-align: right;
     }
+
+    .dataframe td {
+      padding: 0;
+    }
 </style>
 <table border="1" class="dataframe">
   <thead>
