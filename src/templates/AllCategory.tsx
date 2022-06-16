@@ -8,7 +8,7 @@ import config from '../../config/SiteConfig';
 import PageProps from '../models/PageProps';
 
 export default (props: PageProps) => {
-  const { categories } = props.pathContext;
+  const { categories } = props.pageContext;
   if (categories) {
     return (
       <Layout>

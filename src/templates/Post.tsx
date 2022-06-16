@@ -15,7 +15,7 @@ import {
 } from '../components';
 import config from '../../config/SiteConfig';
 import '../utils/prismjs-theme.css';
-import PathContext from '../models/PathContext';
+import PageContext from '../models/PageContext';
 import Post from '../models/Post';
 
 const PostContent = styled.div`
@@ -27,11 +27,11 @@ interface Props {
   data: {
     markdownRemark: Post;
   };
-  pathContext: PathContext;
+  pageContext: PageContext;
 }
 
 export default (props: Props) => {
-  const { prev, next } = props.pathContext;
+  const { prev, next } = props.pageContext;
   const post = props.data.markdownRemark;
   useEffect(() => {
       let script = document.createElement("script");

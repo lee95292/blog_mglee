@@ -1,6 +1,6 @@
 import Post from './Post';
 
-interface PathContext {
+interface PageContext {
   tags?: string[];
   categories?: string[];
   categoryName: string;
@@ -10,4 +10,4 @@ interface PathContext {
   prev: any;
 }
 
-export default PathContext;
+export default PageContext;

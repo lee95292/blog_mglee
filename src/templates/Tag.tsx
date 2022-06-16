@@ -7,7 +7,7 @@ import config from '../../config/SiteConfig';
 import { kebabCase } from 'lodash';
 
 export default (props: PageProps) => {
-  const { posts, tagName } = props.pathContext;
+  const { posts, tagName } = props.pageContext;
   const totalCount = posts ? posts.length : 0;
   const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tagName}"`;
 

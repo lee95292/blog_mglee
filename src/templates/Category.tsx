@@ -7,7 +7,7 @@ import { kebabCase } from 'lodash';
 import PageProps from '../models/PageProps';
 
 export default (props: PageProps) => {
-  const { posts, categoryName } = props.pathContext;
+  const { posts, categoryName } = props.pageContext;
   const totalCount = posts ? posts.length : 0;
   const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${categoryName}"`;
 

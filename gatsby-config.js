@@ -20,7 +20,6 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
-    'gatsby-plugin-manifest',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-lodash',
