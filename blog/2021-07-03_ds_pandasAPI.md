@@ -1,7 +1,7 @@
 ---
 date: "2021-05-15"
 title: "Pandas 기초 사용법"
-category: "DataScience"
+category: datascience
 tags: ['datascience', 'pandas']
 banner: "/assets/bg/2.jpg"
 ---

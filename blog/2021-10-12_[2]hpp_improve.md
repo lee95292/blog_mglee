@@ -1,7 +1,7 @@
 ---
 date: "2021-10-12"
 title: "[Kaggle 커널분석 notebook] House price prediction -2"
-category: "datascience"
+category: datascience
 tags: ['datascience', 'machinelearning']
 banner: "/assets/bg/2.jpg"
 ---

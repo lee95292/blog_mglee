@@ -77,7 +77,7 @@ export default ({ data }: PageProps) => {
                 MyeongGyu Lee <br />
                 
               </h1>
-              <p>I write about Docker, K8s, Typescript, JavaScript, React, and ...</p>
+              <p>웹 프로그래밍(Java/Kotlin,JS), 머신러닝/딥러닝(Vision), 컴퓨터공학 지식과 개인적인 일상에 대한 글을 씁니다. </p>
               <Link to="/contact">
                 <Button big={true}>
                   <svg
@@ -108,12 +108,9 @@ export default ({ data }: PageProps) => {
           </GridRow>
           <GridRow>
             <HomepageContent>
-              <h2>About Me</h2>
+              <h2>About My Posts</h2>
               <p>
-                Though I am a results-driven softiware architect and developer by day who have
-                converted inactive designs to fully interactive, well-developed, accessible and
-                standards-based user interfaces. I am completely enthusiast and passionate about
-                docker/k8s and JavaScript world.
+                간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
               </p>
               <hr />
               <LatestArea>

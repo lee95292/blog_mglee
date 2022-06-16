@@ -2,7 +2,7 @@
 layout: post
 title: "[Continue]devlog"
 date: "2020-05-03"
-category:
+category: log
 ---
 
 > Devlog는 2020년 5월 3일부터 작성하였습니다.
