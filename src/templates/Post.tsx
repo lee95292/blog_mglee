@@ -43,7 +43,6 @@ export default (props: Props) => {
       script.setAttribute("issue-term", "title");
       script.setAttribute( "theme", "github-light");
       anchor?.appendChild(script);
-      console.log(anchor)
   })
   return (
     <Layout>
