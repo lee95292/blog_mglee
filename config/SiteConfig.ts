@@ -3,7 +3,7 @@ export default {
 
   siteTitle: 'Scatch note', // Navigation and Site Title
   siteTitleAlt: 'Myeonggyu Lee(lee95292) programming logs', // Alternative Site title for SEO
-  siteUrl: 'https://lee95292.github.io', // Domain of your site. No trailing slash!
+  siteUrl: 'https://blog.mglee.dev', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteBanner: '/assets/banner.jpg', // Your image for og:image tag. You can find it in the /static folder
   defaultBg: '/assets/bg/1.jpg', // default post background header
