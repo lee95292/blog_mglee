@@ -48,7 +48,7 @@ const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) =>
     <Post>
       <Title>
         <Initiale>{firstChar}</Initiale>
-        <Link to={`/blog/${slug}`}>{title}</Link>
+        <Link to={`/blog/${decodeURI(slug)}`}>{title}</Link>
       </Title>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In
