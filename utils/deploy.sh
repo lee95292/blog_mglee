@@ -8,7 +8,7 @@ npm run build
 
 echo "=====  ${BLOG_NAME}:    deploy start..        ======"
 # 1. 빌드한 블로그 클론 리포지토리에 복사
-git clone https://github.com/lee95292/lee95292.github.io publish
+git clone https://github.com/lee95292/lee95292.github.io ${BLOG_PATH}publish
 cp -r "${BLOG_PATH}public/*" "${BLOG_PATH}publish"
 
 # 2. 커밋/푸쉬 (배포)

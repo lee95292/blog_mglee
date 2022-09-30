@@ -163,6 +163,7 @@ export const reset = css`
   img {
     max-width: 100%;
     display: flex;
+    box-shadow: 1px 1px 10px 1px grey;
   }
 
   /* Natural flow and rhythm in articles by default */
