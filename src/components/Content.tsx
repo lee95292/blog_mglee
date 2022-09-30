@@ -8,6 +8,8 @@ export const Content = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
   z-index: 9000;
   margin-top: -4rem;
+  margin-left:9%;
+  margin-right:9%;
   form {
     p {
       label,
@@ -26,8 +28,10 @@ export const Content = styled.div`
   }
   @media ${media.tablet} {
     padding: 3rem 3rem;
+    margin: 0;
   }
   @media ${media.phone} {
     padding: 2rem 1.5rem;
+    margin: 0;
   }
 `;

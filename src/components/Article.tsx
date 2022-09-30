@@ -31,6 +31,7 @@ const Excerpt = styled.p`
   grid-column: -1 / 1;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  
 `;
 
 interface Props {

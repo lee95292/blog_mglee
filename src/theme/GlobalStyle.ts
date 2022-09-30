@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.colors.bg};
     color: ${(props) => props.theme.colors.grey.default};
     @media ${media.phone} {
-      font-size: 1.4rem;
+      font-size: 0.8rem;
     }
   }
   a {
