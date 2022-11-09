@@ -1,6 +1,6 @@
 ---
 date: "2022-09-23"
-title: "JVM의 Garbage Collector"
+title: "JVM의 Garbage Collector 동작방법"
 category: computer science
 tags: ['java', 'jvm','garbage collector']
 banner: "/assets/bg/3.jpg"
@@ -19,7 +19,9 @@ banner: "/assets/bg/3.jpg"
 
 # GC의 동작 과정 
 
-대부분의 Object는 생성되고 얼마되지 않아 Unreachable상태가 됩니다. JVM에서 Heap에 Object를 적재할 때, 생성시기와 생존기간을 고려해 크게 **Young Generation, Old Generation**으로 구역을 나누어, GC를 위한 데이터 접근을 효율적으로 수행합니다.
+대부분의 객체는 생성되고 얼마되지 않아 Unreachable Object가 됩니다. JVM에서 Heap에 Object를 적재할 때, 생성시기와 생존기간을 고려해 크게 **Young Generation, Old Generation**으로 구역을 나누어, GC를 위한 데이터 접근을 효율적으로 수행합니다.
+
+> Unreachable Object: 메서드가 종료되거나 참조가 사라져 사용할 수 없는 객체.
 
  또한, JVM을 설계할 때, 객체는 금방 Unreachable 상태가 된다는 것을 가정하고 시작하므로 Young Geneartion 영역이 Old Generation 영역보다 작고, GC도 더 자주 수행됩니다. 
 
@@ -31,7 +33,7 @@ YG,OG영역에서 수행되는 GC를 각각 Minor GC, Major GC 라고 하며 수
 
 ### **Mark & Sweep**동작은 
 ---
-**Mark & Sweep**동작은, 전역변수와 현재 scope의 로컬 변수를 Root로 시작해 참조하고 있는 Object를 탐색하며 mark bit를 true로 변경해줍니다.
+**Mark & Sweep**동작은, 전역변수와 현재 scope의 로컬 변수를 루트로 시작해 참조하고 있는 Object를 탐색하며 mark bit를 true로 변경해줍니다.
 
 이후 Mark되지 않은 Object(회색부분)를 삭제해주며, GC과정을 수행합니다.  
 
@@ -50,7 +52,6 @@ YG,OG영역에서 수행되는 GC를 각각 Minor GC, Major GC 라고 하며 수
 Young Generation(YG)영역의 경우, 처음 생성한 객체를 저장하는 Eden영역과, Eden영역에서 살아남은 객체가 저장되는 Survival영역이 두 개 존재합니다. 
 동적으로 할당된 메모리 영역(Heap)에서 **Unreachable Object를** 찾아 삭제하는 역할 수행합니다.
 
-> Unreachable Object: 메서드가 종료되거나 Object의 참조가 사라져 사용할 수 없는 객체.
 
 ### 기본 프로세스
 
