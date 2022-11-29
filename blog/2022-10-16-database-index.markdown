@@ -21,7 +21,7 @@ Clustered Index는, Primary Key에 주로 사용되며 실제 데이터가 정�
 
 클러스터드 인덱스의 경우 인덱스 키값과 데이터페이지 주소가 저장되며, 두 번의 페이지 조회만에 데이터를 찾을 수 있습니다. 
 
-## Non Clustered Index
+# Non Clustered Index
 InnoDB는 B+Tree 자료구조를 통해 인덱스 데이터를 관리합니다. B+Tree는 자식이 2개 이상인 m-ary 균형(Balanced) 트리입니다. 
 
 
