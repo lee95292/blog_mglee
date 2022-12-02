@@ -23,7 +23,7 @@ export default {
   backgroundColor: '#2b2e3c',
 
   // Settings for typography.ts
-  headerFontFamily: 'Bitter',
+  headerFontFamily: 'ui-sans-serif, -apple-system, BlinkMacSystemFont , Segoe UI, Helvetica , Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol',
   bodyFontFamily: 'Open Sans',
   baseFontSize: '18px',
 

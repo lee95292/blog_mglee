@@ -17,7 +17,8 @@ cp -r ${BLOG_PATH}public/ ${BLOG_PATH}publish
 echo "=====  ${BLOG_NAME}:    Commit-push        ======"
 cd ${BLOG_PATH}publish
 export LANG='en_US.UTF-8'
-git commit -am "$(date)"
+git add .
+git commit -m "$(date)"
 git push origin master
 
 rm -rf ${BLOG_PATH}publish

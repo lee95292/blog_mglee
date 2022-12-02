@@ -6,7 +6,7 @@ tags: ['java', 'jvm','garbage collector']
 banner: "/assets/bg/3.jpg"
 ---
 
-# 가비지 컬렉터란?
+운영체제 Heap 메모리 영역에 접근해 **사용하지 않는 Object를 정리**해주는 JVM의 구성요소입니다. 개발자가 직접적으로 메모리 해제를 C/C++과 달리, JVM에서는 GC를 제공해 개발에만 집중하고, Memory Leak을 신경쓰지 않아도 됩니다. 
 
 > (JVM은 아래 4가지 구성요소로 이뤄져있다)
 * 자바 인터프리터(interpreter)  
@@ -14,7 +14,6 @@ banner: "/assets/bg/3.jpg"
 * JIT 컴파일러(Just-In Time compiler)  
 * **가비지 컬렉터(garbage collector)**  (오늘 알아볼 내용)
 
-운영체제 Heap 메모리 영역에 접근해 **사용하지 않는 Object를 정리**해주는 JVM의 구성요소입니다. 개발자가 직접적으로 메모리 해제를 C/C++과 달리, JVM에서는 GC를 제공해 개발에만 집중하고, Memory Leak을 신경쓰지 않아도 됩니다. 
 
 
 # GC의 동작 과정 

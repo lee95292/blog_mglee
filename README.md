@@ -1,6 +1,7 @@
 # PLAN - toods 
-* utils/newpost.sh
-* utils/deploy.sh
+* code태그 스타일링
+* h1태그 스타일링: 폰트가 영어에서만 커지는문제, 글자사이즈 큰 문제
+
 
 # PLAN - ideas
 * About page : 버전 나누기 (AI용, 개발자용) =>deprecated
@@ -15,8 +16,13 @@
 # Done
 * 구글 애널리틱스
 * utterance, 댓글 기능
+* utils/deploy.sh 배포파일 생성
 
 # 포스팅 계획
+* Spring 공식문서 주요개념
+
+
+
+# Done [posting]
 * JVM GC 보충 : G1, ZGC
 * DB Index (covering index), 성능측정
-* 

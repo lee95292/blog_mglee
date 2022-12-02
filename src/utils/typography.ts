@@ -3,8 +3,8 @@ import config from '../../config/SiteConfig';
 
 const typography = new Typography({
   baseFontSize: config.baseFontSize,
-  baseLineHeight: 1.66,
-  scaleRatio: 3.157,
+  baseLineHeight: 1.7,
+  scaleRatio: 2.6,
   headerFontFamily: [config.headerFontFamily, 'sans-serif'],
   bodyFontFamily: [config.bodyFontFamily, 'sans-serif'],
   headerWeight: 700,

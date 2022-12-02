@@ -28,7 +28,10 @@ const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3, h4 {
     color: ${(props) => props.theme.colors.grey.dark};
-    font-weight:400;
+    font-weight:600;
+  }
+  h1{
+    margin-top:5rem;
   }
   blockquote {
     font-style: italic;

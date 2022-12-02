@@ -40,6 +40,14 @@ pre[class*="language-"] {
   background: #272822;
 }
 
+:not(pre) > code[class*="language-text"],
+pre[class*="language-text"] {
+  background: white;
+  color:black;
+  border-radius: 3rem;
+  border: 1.5px solid #a9dbe6;
+}
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
   padding: .1em;
