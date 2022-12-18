@@ -8,10 +8,12 @@ banner: "/assets/bg/3.jpg"
 
 운영체제 Heap 메모리 영역에 접근해 **사용하지 않는 Object를 정리**해주는 JVM의 구성요소입니다. 개발자가 직접적으로 메모리 해제를 C/C++과 달리, JVM에서는 GC를 제공해 개발에만 집중하고, Memory Leak을 신경쓰지 않아도 됩니다. 
 
-> (JVM은 아래 4가지 구성요소로 이뤄져있다)
-* 자바 인터프리터(interpreter)  
+![](https://user-images.githubusercontent.com/30853787/205865221-357f520b-465f-4c5f-a80c-a78a53707ac8.png)
+
+> JVM은 다음과 같은 구성요소가 존재합니다.
+* 실행엔진 : 자바 인터프리터(interpreter) ,JIT 컴파일러(Just-In Time compiler)  
 * 클래스 로더(class loader)  
-* JIT 컴파일러(Just-In Time compiler)  
+* Runtime Data Area(Heap, Stack, 등등 실행데이터)
 * **가비지 컬렉터(garbage collector)**  (오늘 알아볼 내용)
 
 

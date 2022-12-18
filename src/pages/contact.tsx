@@ -14,7 +14,15 @@ export default () => {
       </Header>
       <Wrapper>
         <Content>
-          <p>Super cool intro text to get people contacting me!</p>
+        <h3>현재 목표: 백엔드 개발자의 기본기 갖추기.</h3>
+        <code>
+          최소 2주에 한번, 아래 주제에 대해 글 쓰기
+        </code>
+        <br/><br/>
+          <p>Spring Document를 기반으로 한 깊이있는 학습</p>
+          <p>TDD와 테스트코드 공부</p>
+          <p>책 Java ORM 표준: JPA 프로그래밍</p>
+          <p>Real MySQL</p>
           <a href="https://github.com/lee95292">
             <Button big={true}>
               <svg
