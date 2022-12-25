@@ -129,18 +129,20 @@ exports.createPages = ({ actions, graphql }) => {
     const postsPerPage = config.POST_PER_PAGE;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
-    Array.from({ length: numPages }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve('./src/templates/Blog.tsx'),
-        context: {
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          totalPages: numPages,
-          currentPage: i + 1,
-        },
-      });
-    });
+    // TODO: 블로그 글 목록 지우기
+    // Array.from({ length: numPages }).forEach((_, i) => {
+    //   createPage({
+    //     path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+    //     component: path.resolve('./src/templates/Blog.tsx'),
+    //     context: {
+    //       posts,
+    //       limit: postsPerPage,
+    //       skip: i * postsPerPage,
+    //       totalPages: numPages,
+    //       currentPage: i + 1,
+    //     },
+    //   });
+    // });
 
     createClassificationPages({ createPage, posts, postsPerPage, numPages });
 

@@ -11,8 +11,16 @@ import { media } from '../utils/media';
 const Homepage = styled.main`
   display: flex;
   height: 100vh;
-  flex-direction: column;
+  flex-direction: row;
   animation: 0.3s ease-in-out 0.1s both slide;
+  @media ${media.tablet} {
+    height: 100%;
+    flex-direction: column;
+  }
+  @media ${media.phone} {
+    height: 100%;
+    flex-direction: column;
+  }
 `;
 
 const GridRow: any = styled.div`
@@ -64,6 +72,7 @@ export default ({ data }: PageProps) => {
         <Homepage>
           <GridRow background={true}>
             <HomepageContent center={true}>
+              <img src={config.siteLogo} alt={config.siteTitle} />
               <h1>
                 MyeongGyu Lee <br />
                 
@@ -130,7 +139,7 @@ export default ({ data }: PageProps) => {
 };
 export const IndexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
       totalCount
       edges {
         node {

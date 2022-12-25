@@ -10,7 +10,6 @@ export default {
   favicon: 'src/favicon.png', // Your image for favicons. You can find it in the /src folder
   siteDescription: 'Typescript Power Blog with big typography', // Your site description
   author: 'Myeonggyu Lee', // Author for schemaORGJSONLD
-  siteLogo: '/assets/logo.png', // Image for schemaORGJSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
   // userTwitter: '', // Twitter Username - Optional
