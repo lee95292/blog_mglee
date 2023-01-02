@@ -2,7 +2,7 @@
 layout: post
 title:  "Spring Framework의 IoC와 Bean이란"
 date:   "2022-11-17"
-category: "spring framework"
+category: "tech"
 ---
 
 본 글은  [Link: Spring 공식문서에서 1절](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-introduction)을 읽고 궁금한점을 찾아보며 정리한 글입니다.

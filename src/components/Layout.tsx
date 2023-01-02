@@ -51,7 +51,7 @@ const Layout = ({ children }: { children: any }) => {
           </svg>
         </ModeButton>
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     </ThemeProvider>
   );
