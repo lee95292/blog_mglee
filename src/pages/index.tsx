@@ -16,7 +16,7 @@ export default ({ data }: PageProps) => {
   const [category, setCategory] = React.useState(config.categories[0]);
   const [tag, setTag] = React.useState('all');
   const tagMap = getPostsByType(edges, 'tags');
-  console.log(category,tag)
+  console.log(category, tag)
   Object.entries(tagMap).sort((a, b) => { return a[1].length - b[1].length }).map(([k, v]) => {
     console.log(k, v)
   })
@@ -59,22 +59,27 @@ export default ({ data }: PageProps) => {
               </Link>
             </HomepageContent>
           </GridRow>
-          <GridRow>
-            <Filter>
+          <GridRow spreadStack={true}>
+            <LeftColumn>
+            <h2>About My Posts</h2>
+            <p>
+              간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
+            </p>
+            <hr />
               <h2>글 분류</h2>
               <hr />
-              <Filters>
+              <Filter>
                 {config.categories.map((category) => (
                   <CategoryBlock onClick={() => { setCategory(category) }}>
                     | {category} |
                   </CategoryBlock>
                 ))}
-              </Filters>
+              </Filter>
 
 
               <h2>태그</h2>
               <hr />
-              <Filters>
+              <Filter>
                 {Object.entries(tagMap)
                   .sort((a, b) => { return b[1].length - a[1].length })
                   .map(([key, value]) => (
@@ -82,16 +87,12 @@ export default ({ data }: PageProps) => {
                       {key}({value.length})
                     </TagBlock>
                   ))}
-              </Filters>
+              </Filter>
 
 
-            </Filter>
+            </LeftColumn>
             <HomepageContent>
-              <h2>About My Posts</h2>
-              <p>
-                간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
-              </p>
-              <hr />
+
               <LatestArea>
                 <h2>Latest Articles</h2>
                 <p className={'allArticles'}>
@@ -107,7 +108,7 @@ export default ({ data }: PageProps) => {
                     (post.node.frontmatter.tags
                       && post.node.frontmatter.tags.includes(tag))
                     || isAllTag;
-                  console.log(post, isCategoryMatch,isTagMatch)
+                  console.log(post, isCategoryMatch, isTagMatch)
                   if (isCategoryMatch && isTagMatch) return true;
                   else return false;
                 })
@@ -145,6 +146,7 @@ export const IndexQuery = graphql`
             category
             tags
           }
+          excerpt(pruneLength: 200)
           timeToRead
         }
       }
@@ -180,18 +182,41 @@ const GridRow: any = styled.div`
   }
   @media ${media.tablet} {
     padding: 3rem 3rem;
+    ${(props:any) => 
+      props.spreadStack ? 'display:block;' : null
+    }
   }
   @media ${media.phone} {
     padding: 2rem 1.5rem;
+    ${(props:any) => 
+      props.spreadStack ? 'display:block' : null
+    }
   }
 `;
 
 const HomepageContent = styled.div<{ center?: boolean }>`
-  max-width: 30rem;
+  max-width: 40rem;
+  min-width:35rem;
+  height:100%;
+  margin-left: 10rem;
   text-align: ${(props) => (props.center ? 'center' : 'left')};
   animation: 0.5s ease-in-out 0.6s both fadeIn;
 `;
-
+const LeftColumn = styled.div`
+  max-width:24rem;
+  height:100%;
+  animation: 0.5s ease-in-out 0.6s both fadeIn;
+  @media ${media.tablet} {
+    height:auto;
+    max-width:100%;
+    align:center;
+  }
+  @media ${media.phone} {
+    height:auto;
+    max-width:100%;
+    align:center;
+  }
+`;
 const LatestArea = styled.div<{}>`
   display: flex;
   justify-content: space-between;
@@ -199,11 +224,6 @@ const LatestArea = styled.div<{}>`
     margin-top: 2%;
   }
 `
-
-const Filter = styled.div`
-  height:100%;
-  width:30%;
-`;
 
 const TagBlock = styled.div`
   &:hover{
@@ -214,7 +234,7 @@ const TagBlock = styled.div`
 
 const CategoryBlock = styled.div``;
 
-const Filters = styled.div`
+const Filter = styled.div`
   display:flex;
   flex-wrap:wrap;
 `
