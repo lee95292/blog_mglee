@@ -14,8 +14,12 @@ import { getPostsByType } from '../utils/filter';
 export default ({ data }: PageProps) => {
   const { edges, totalCount } = data.allMarkdownRemark;
   const [category, setCategory] = React.useState(config.categories[0]);
-  const [tag, setTag] = React.useState("all");
+  const [tag, setTag] = React.useState('all');
   const tagMap = getPostsByType(edges, 'tags');
+  console.log(category,tag)
+  Object.entries(tagMap).sort((a, b) => { return a[1].length - b[1].length }).map(([k, v]) => {
+    console.log(k, v)
+  })
   return (
     <Layout>
       <Wrapper fullWidth={true}>
@@ -23,11 +27,10 @@ export default ({ data }: PageProps) => {
         <Homepage>
           <GridRow background={true}>
             <HomepageContent center={true}>
-              <h1>
+              <h3>
                 MyeongGyu Lee <br />
-                
-              </h1>
-              <p>웹 프로그래밍(Java/Kotlin,JS), 머신러닝/딥러닝(Vision), 컴퓨터공학 지식과 개인적인 일상에 대한 글을 씁니다. </p>
+              </h3>
+              <p>웹 프로그래밍(Java/Kotlin,JS), 머신러닝/딥러닝(Vision), 컴퓨터공학 지식에 대한 글을 씁니다. </p>
               <Link to="/contact">
                 <Button big={true}>
                   <svg
@@ -59,23 +62,29 @@ export default ({ data }: PageProps) => {
           <GridRow>
             <Filter>
               <h2>글 분류</h2>
-              <hr/>
-              {config.categories.map((category)=> (
-                <span onClick={() => {setCategory(category)}}>
-                  | {category} |
-                </span>
-              ) )}
+              <hr />
+              <Filters>
+                {config.categories.map((category) => (
+                  <CategoryBlock onClick={() => { setCategory(category) }}>
+                    | {category} |
+                  </CategoryBlock>
+                ))}
+              </Filters>
 
 
-            <h2>태그</h2>
-            {Object.keys(tagMap).map(key => (
-              <span>
-                {key}()
-              </span>
-            ))}
-            <hr/>
+              <h2>태그</h2>
+              <hr />
+              <Filters>
+                {Object.entries(tagMap)
+                  .sort((a, b) => { return b[1].length - a[1].length })
+                  .map(([key, value]) => (
+                    <TagBlock onClick={() => { setTag(key) }}>
+                      {key}({value.length})
+                    </TagBlock>
+                  ))}
+              </Filters>
 
-            
+
             </Filter>
             <HomepageContent>
               <h2>About My Posts</h2>
@@ -86,26 +95,33 @@ export default ({ data }: PageProps) => {
               <LatestArea>
                 <h2>Latest Articles</h2>
                 <p className={'allArticles'}>
-                  <Link to={'/blog'}>All articles ({totalCount})</Link>
+                  {/* <Link to={'/blog'}>All articles ({totalCount})</Link> */}
                 </p>
               </LatestArea>
               {edges
-              .filter((post) => {
-                if(category == config.categories[0]) return true;
-                else if(post.node.frontmatter.category == category) return true;
-                else return false;
-              })
-              .map((post) => (
-                <Article
-                  title={post.node.frontmatter.title}
-                  date={post.node.frontmatter.date}
-                  excerpt={post.node.excerpt}
-                  timeToRead={post.node.timeToRead}
-                  slug={post.node.fields.slug}
-                  category={post.node.frontmatter.category}
-                  key={post.node.fields.slug}
-                />
-              ))}
+                .filter((post) => {
+                  const isAllCategory = category == config.categories[0];
+                  const isAllTag = tag == 'all';
+                  const isCategoryMatch = post.node.frontmatter.category == category || isAllCategory;
+                  const isTagMatch =
+                    (post.node.frontmatter.tags
+                      && post.node.frontmatter.tags.includes(tag))
+                    || isAllTag;
+                  console.log(post, isCategoryMatch,isTagMatch)
+                  if (isCategoryMatch && isTagMatch) return true;
+                  else return false;
+                })
+                .map((post) => (
+                  <Article
+                    title={post.node.frontmatter.title}
+                    date={post.node.frontmatter.date}
+                    excerpt={post.node.excerpt}
+                    timeToRead={post.node.timeToRead}
+                    slug={post.node.fields.slug}
+                    category={post.node.frontmatter.category}
+                    key={post.node.fields.slug}
+                  />
+                ))}
 
             </HomepageContent>
           </GridRow>
@@ -159,7 +175,7 @@ const GridRow: any = styled.div`
   background-size: cover;
   padding: 2rem 4rem;
   color: ${(props: any) => (props.background ? props.theme.colors.white : null)};
-  h1 {
+  h3 {
     color: ${(props: any) => (props.background ? props.theme.colors.white : null)};
   }
   @media ${media.tablet} {
@@ -188,3 +204,17 @@ const Filter = styled.div`
   height:100%;
   width:30%;
 `;
+
+const TagBlock = styled.div`
+  &:hover{
+    color: ${(props) => props.theme.colors.primary};
+  }
+  margin: 0.5rem;
+`
+
+const CategoryBlock = styled.div``;
+
+const Filters = styled.div`
+  display:flex;
+  flex-wrap:wrap;
+`

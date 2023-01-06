@@ -23,7 +23,7 @@ export default {
 
   // Settings for typography.ts
   headerFontFamily: 'ui-sans-serif, -apple-system, BlinkMacSystemFont , Segoe UI, Helvetica , Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol',
-  bodyFontFamily: 'Open Sans',
+  bodyFontFamily: 'sans-serif',
   baseFontSize: '18px',
 
   // Social media

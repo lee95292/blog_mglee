@@ -7,8 +7,8 @@ interface Data{
   node:Node
 }
 
-const getPostsByType = (posts: any, classificationType: keyof Frontmatter):object => {
-  const postsByType: { [name: string]: any[] } = {};
+const getPostsByType = (posts: any, classificationType: keyof Frontmatter):{ [key: string | number]: Node[] }  => {
+  const postsByType: { [key: string | number]: Node[] } = {};
   posts.forEach((data: Data): void => {
     const {node} = data
     console.log(node)

@@ -14,15 +14,15 @@ export default () => {
       </Header>
       <Wrapper>
         <Content>
-        <h3>현재 목표: 백엔드 개발자의 기본기 갖추기.</h3>
-        <code>
-          최소 2주에 한번, 아래 주제에 대해 글 쓰기
-        </code>
-        <br/><br/>
-          <p>Spring Document를 기반으로 한 깊이있는 학습</p>
-          <p>TDD와 테스트코드 공부</p>
-          <p>책 Java ORM 표준: JPA 프로그래밍</p>
-          <p>Real MySQL</p>
+        <h2>백엔드 개발자의 기본기 갖추기</h2>
+        <h4>아래 주제에 대해 꾸준히 공부하고 글 쓰기</h4>
+        {/* <br/><br/> */}
+        <ul>
+          <li>책 Java ORM 표준: JPA 프로그래밍스터디: <a style={{"color":"blue"}} target="_blank" href="https://www.notion.so/djunnni-resume/JPA-09bf2e8307504e959f208d6ebce8ecc2">(스터디 노션 링크)</a> </li>
+          <li>Spring Document를 기반으로 한 깊이있는 학습</li>
+          <li>TDD와 테스트코드 스터디</li>
+          <li>Real MySQL, SQL 안티패턴 스터디</li>
+        </ul>
           <a href="https://github.com/lee95292">
             <Button big={true}>
               <svg
