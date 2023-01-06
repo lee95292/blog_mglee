@@ -2,7 +2,7 @@
 layout : post
 title : "[Jenkins] 젠킨스 원격 배포 (CD) 수행하기"
 date : "2019-12-03"
-category: devops
+category: howto
 ---
 
 젠킨스 서버에서 CI된 결과물을 원격 서버에 CD하기.

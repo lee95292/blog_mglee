@@ -2,7 +2,7 @@
 layout : post
 title : "[Mysql] mysql 원격 접속 가능하도록 설정하기"
 date : "2019-12-04"
-category: boostcourse
+category: howto
 ---
 
 

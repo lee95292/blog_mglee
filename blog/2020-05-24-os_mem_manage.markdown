@@ -2,7 +2,8 @@
 layout : post
 title : "[Continue,OS] 메모리파트 정리"
 date : "2020-05-24"
-category: OS
+category: tech
+tags: ['운영체제', 'computerscience']
 ---
 
 

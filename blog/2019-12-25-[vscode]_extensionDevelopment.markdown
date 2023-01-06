@@ -2,7 +2,7 @@
 layout: post
 title: "[vscode] vscode 확장 프로그램 환경 구성"
 date: "2019-12-25"
-category: vscode
+category: howto
 ---
 
 본 포스팅은, [VSCode extension development docs](https://code.visualstudio.com/api)를 학습하며 작성했습니다.

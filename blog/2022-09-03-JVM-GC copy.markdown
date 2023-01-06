@@ -1,7 +1,7 @@
 ---
 date: "2022-09-23"
 title: "JVM의 Garbage Collector 동작방법"
-category: computer science
+category: tech
 tags: ['java', 'jvm','garbage collector']
 banner: "/assets/bg/3.jpg"
 ---

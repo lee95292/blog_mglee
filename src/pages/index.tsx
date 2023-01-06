@@ -16,10 +16,11 @@ export default ({ data }: PageProps) => {
   const [category, setCategory] = React.useState(config.categories[0]);
   const [tag, setTag] = React.useState('all');
   const tagMap = getPostsByType(edges, 'tags');
-  console.log(category, tag)
-  Object.entries(tagMap).sort((a, b) => { return a[1].length - b[1].length }).map(([k, v]) => {
-    console.log(k, v)
-  })
+  const toggleTag = (switchTag: any): void => {
+    if (switchTag == tag) setTag('all');
+    else setTag(switchTag);
+  }
+
   return (
     <Layout>
       <Wrapper fullWidth={true}>
@@ -61,29 +62,26 @@ export default ({ data }: PageProps) => {
           </GridRow>
           <GridRow spreadStack={true}>
             <LeftColumn>
-            <h2>About My Posts</h2>
-            <p>
-              간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
-            </p>
-            <hr />
+              <h2>About My Posts</h2>
+              <p>
+                간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
+              </p>
               <h2>글 분류</h2>
-              <hr />
               <Filter>
-                {config.categories.map((category) => (
-                  <CategoryBlock onClick={() => { setCategory(category) }}>
-                    | {category} |
+                {config.categories.map((_category) => (
+                  <CategoryBlock isActive={_category==category}onClick={() => { setCategory(_category) }}>
+                    | {_category.toUpperCase()} |
                   </CategoryBlock>
                 ))}
               </Filter>
 
 
               <h2>태그</h2>
-              <hr />
               <Filter>
                 {Object.entries(tagMap)
                   .sort((a, b) => { return b[1].length - a[1].length })
                   .map(([key, value]) => (
-                    <TagBlock onClick={() => { setTag(key) }}>
+                    <TagBlock isActive={tag == key} onClick={() => { toggleTag(key) }} >
                       {key}({value.length})
                     </TagBlock>
                   ))}
@@ -146,7 +144,7 @@ export const IndexQuery = graphql`
             category
             tags
           }
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 120)
           timeToRead
         }
       }
@@ -182,15 +180,15 @@ const GridRow: any = styled.div`
   }
   @media ${media.tablet} {
     padding: 3rem 3rem;
-    ${(props:any) => 
-      props.spreadStack ? 'display:block;' : null
-    }
+    ${(props: any) =>
+    props.spreadStack ? 'display:block;' : null
+  }
   }
   @media ${media.phone} {
     padding: 2rem 1.5rem;
-    ${(props:any) => 
-      props.spreadStack ? 'display:block' : null
-    }
+    ${(props: any) =>
+    props.spreadStack ? 'display:block' : null
+  }
   }
 `;
 
@@ -225,16 +223,25 @@ const LatestArea = styled.div<{}>`
   }
 `
 
-const TagBlock = styled.div`
-  &:hover{
-    color: ${(props) => props.theme.colors.primary};
-  }
+const TagBlock: any = styled.div`
   margin: 0.5rem;
+  ${(props: any) => props.isActive ? `color:${props.theme.colors.primary}` : null};
+  &:hover{
+    color: ${(props) => props.theme.colors.grey};
+  }
+
 `
 
-const CategoryBlock = styled.div``;
+const CategoryBlock:any = styled.div`
+  margin: 0.5rem;
+  ${(props: any) => props.isActive ? `color:${props.theme.colors.primary}` : null};
+  &:hover{
+    color: ${(props) => props.theme.colors.grey};
+  }
+`;
 
 const Filter = styled.div`
   display:flex;
   flex-wrap:wrap;
+  margin-bottom:4rem;
 `

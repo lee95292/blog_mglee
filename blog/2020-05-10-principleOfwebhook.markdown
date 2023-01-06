@@ -2,7 +2,8 @@
 layout: post
 title: "웹훅 (webhook)이 뭐야?, HTTP/2.0 Webpush 스펙 요약"
 date: "2020-05-10"
-category: http
+category: tech
+tags: ['http','webhook']
 ---
 
 # Intro

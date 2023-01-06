@@ -2,7 +2,8 @@
 layout : post
 title : "React.js 기초 튜터리얼, 개념 편 [1]"
 date : "2019-09-12"
-category: react
+category: tech
+tags: ['react']
 ---
 
 > [React.js 기초 튜터리얼](https://ko.reactjs.org)을 학습하며 작성하는 글입니다. 오류가 있을 수 있으며, 이메일을 통한 오류 수정 환영합니다.

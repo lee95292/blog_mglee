@@ -2,7 +2,8 @@
 layout: post
 title: "[Javascript Function] call, apply, bind 메서드"
 date: "2020-08-14"
-category: javascript
+category: tech
+tags: ['javascript']
 ---
 
 ## Intro

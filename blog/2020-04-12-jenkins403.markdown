@@ -2,7 +2,8 @@
 layout: post
 title: "[jenkins 403, no valid crumb] 에러 리포트"
 date: "2020-04-12"
-category: jenkins
+category: bugfix
+tags: ['jenkins', 'CSRF']
 ---
 
 이번 포스팅에서는 젠킨스를 사용하며 만난 403에러의 원인과 해결과정을 풀어서 설명하겠습니다.

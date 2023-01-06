@@ -1,8 +1,8 @@
 ---
 date: "2021-09-20"
 title: "Datascience 패키지 메서드  사용법 정리"
-category: datascience
-tags: ['data science']
+category: howto
+tags: ['datascience', 'pandas', 'sklearn']
 banner: "/assets/bg/2.jpg"
 ---
 

@@ -2,7 +2,8 @@
 layout: post
 title: "[React] React 라우트 기초 사용법"
 date: "2019-09-12"
-category: react
+category: howto
+tags: ['howto']
 ---
 
 > 간단한 기록용 포스트

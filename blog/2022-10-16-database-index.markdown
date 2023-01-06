@@ -2,8 +2,10 @@
 layout: post
 title:  "데이터베이스 인덱스"
 date:   "2022-10-17"
-category: database
+category: tech
+tags: ["computerscience", "database", "index"]
 ---
+
 # 데이터베이스 인덱스 
 
 데이터베이스에서 인덱스란, 자료에 빠르게 접근하기 위해서 존재하는 데이터베이스 자료구조입니다. Index는 한국말로 색인,목차라는 의미를 가지는데, 두거운 책에서 원하는 내용을 찾기 위해 목차를 찾는것과 비슷하게 동작합니다. 

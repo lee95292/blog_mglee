@@ -1,7 +1,7 @@
 ---
 date: "2021-05-15"
 title: "Traefik: 오픈소스 네트워크 게이트웨이"
-category: operation
+category: howto
 tags: ['traefik', 'opensource']
 banner: "/assets/bg/2.jpg"
 ---

@@ -2,7 +2,8 @@
 layout: post
 title: "타입스크립트 핵심 Concepts! (번역)"
 date: "2020-08-01"
-category: typescript
+category: tech
+tags: ['typescript', 'javascript'] 
 ---
 
 > 본문은 [Typescript 핵심 개념](https://www.educative.io/blog/advanced-typescript-concepts) 을 번역(+ 개인적인 의견 추가)한 글입니다.

@@ -8,8 +8,11 @@ export const Content = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
   z-index: 9000;
   margin-top: -4rem;
-  margin-left:9%;
+  margin-left:13%;
   margin-right:9%;
+  width:950px;
+  min-width:0px;
+  max-witdh:100%;
   form {
     p {
       label,

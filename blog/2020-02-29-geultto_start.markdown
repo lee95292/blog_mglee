@@ -3,6 +3,7 @@ layout: post
 title: "글또 4기 시작, 다짐글"
 date: "2020-02-29"
 category: etc
+tags: ['글또']
 ---
 
 글또 4기 다짐글 : 근거있는 변화와 계획!
