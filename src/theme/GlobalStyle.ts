@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top:4rem;
   }
   h3{
-    margin-top:2rem;
+    margin-top:3rem;
   }
   blockquote {
     font-style: italic;

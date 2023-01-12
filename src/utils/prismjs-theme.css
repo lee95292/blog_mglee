@@ -42,7 +42,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-text"],
 pre[class*="language-text"] {
-  background: white;
+  background: gray;
   color:black;
   border-radius: 3rem;
   border: 1.5px solid #a9dbe6;

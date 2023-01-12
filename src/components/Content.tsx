@@ -8,8 +8,8 @@ export const Content = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
   z-index: 9000;
   margin-top: -4rem;
-  margin-left:13%;
-  margin-right:9%;
+  margin-right:calc(-425px + 50%);
+  margin-left:calc(-425px + 50%);
   width:950px;
   min-width:0px;
   max-witdh:100%;
