@@ -13,6 +13,9 @@ export const Content = styled.div`
   width:950px;
   min-width:0px;
   max-witdh:100%;
+  li{
+    margin-bottom:5px;
+  }
   form {
     p {
       label,

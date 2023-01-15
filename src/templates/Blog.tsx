@@ -18,7 +18,6 @@ export default (props: Props) => {
 
   const { data } = props;
   const { edges, totalCount } = data.allMarkdownRemark;
-  console.log(data);
   return (
     <Layout>
       <Helmet title={`Blog | ${config.siteTitle}`} />
