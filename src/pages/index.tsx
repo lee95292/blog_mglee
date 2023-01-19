@@ -20,6 +20,13 @@ export default ({ data }: PageProps) => {
     if (switchTag == tag) setTag('all');
     else setTag(switchTag);
   }
+  const getTagDescription = (tag: string) => {
+    if (config.tagDescription[tag] != null) {
+      return <><strong>{tag.toUpperCase()}</strong> {" " + config.tagDescription[tag]}  </>
+    } else {
+      return <strong>{tag}</strong>
+    }
+  }
 
   return (
     <Layout>
@@ -46,7 +53,7 @@ export default ({ data }: PageProps) => {
                 </Button>
               </Link>
               <Link to="/blog">
-                
+
               </Link>
             </HomepageContent>
           </GridRow>
@@ -58,8 +65,8 @@ export default ({ data }: PageProps) => {
               </p>
               <h2>글 분류</h2>
               <Filter>
-                {config.categories.map((_category) => (
-                  <CategoryBlock isActive={_category==category}onClick={() => { setCategory(_category) }}>
+                {config.categories.map((_category:any) => (
+                  <CategoryBlock isActive={_category == category} onClick={() => { setCategory(_category) }}>
                     | {_category.toUpperCase()} |
                   </CategoryBlock>
                 ))}
@@ -81,12 +88,12 @@ export default ({ data }: PageProps) => {
             </LeftColumn>
             <HomepageContent>
 
-              <LatestArea>
-                <h2>Latest Articles</h2>
-                <p className={'allArticles'}>
-                  {/* <Link to={'/blog'}>All articles ({totalCount})</Link> */}
-                </p>
-              </LatestArea>
+              <h2>"{category.toUpperCase()}" Latest Articles <CategoryDesc>{config.categoryDescription[category]} </CategoryDesc></h2>
+              <div>
+                {/* <strong>{tag != "all" ? tag.toUpperCase() + " -" : ""}</strong> {config.tagDescription[tag]} */}
+                {getTagDescription(tag)}
+                {/* <Link to={'/blog'}>All articles ({totalCount})</Link> */}
+              </div>
               {edges
                 .filter((post) => {
                   const isAllCategory = category == config.categories[0];
@@ -223,7 +230,7 @@ const TagBlock: any = styled.div`
 
 `
 
-const CategoryBlock:any = styled.div`
+const CategoryBlock: any = styled.div`
   margin: 0.5rem;
   cursor:pointer;
   ${(props: any) => props.isActive ? `color:${props.theme.colors.primary}` : null};
@@ -236,4 +243,10 @@ const Filter = styled.div`
   display:flex;
   flex-wrap:wrap;
   margin-bottom:4rem;
+`
+const CategoryDesc = styled.sub`
+  font-size: 21px;
+  font-weight: 400;
+  padding-left: 1.3rem;
+  color:grey;
 `

@@ -3,7 +3,7 @@ layout: post
 title:  "JPA의 엔티티 매니저와 영속성 관리 "
 date:   "2023-01-03"
 category: "tech"
-tags: ["JPA", "study"]
+tags: ["JPA", "JPA study"]
 ---
 
 # JPA의 엔티티매니저와 영속성 관리

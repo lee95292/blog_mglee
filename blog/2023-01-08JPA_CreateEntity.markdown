@@ -3,7 +3,7 @@ layout: post
 title:  "JPA에서 엔티티를 작성하는 방법"
 date:   "2023-01-08"
 category: "tech"
-tags: ["JPA", "study"]
+tags: ["JPA", "JPA study"]
 ---
 # JPA에서 엔티티를 작성하는 방법
 
@@ -163,6 +163,36 @@ private Long Id
 public Long getId() {...}
 ```
 
+
+### 아까 봤던 엔티티 다시보기
+내용들을 공부하기 전에 확인했던 엔티티입니다. 아래 엔티티를 확인하면, 필드에 선언된 애너테이션의 의미와 역할, 제한사항, 컬럼 등에 대해 이해할 수 있습니다.
+
+```java
+@Entity
+@Table
+public class Member{
+	@Id
+	@Column(name="ID")
+	private String id;
+
+	@Column(name="NAME")
+	private String username;
+
+	private Integer age;
+
+	@Enumerated(EnumType.STRING)
+	private RoleType roleType;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdDate;
+
+	@Temporal(TemproalType.TIMESTAMP)
+	private Date lastModifiedDate;
+
+	@Lob
+	private String description
+}
+```
 ## 데이터베이스 스키마 자동생성
 
 JPA는 위처럼 엔티티를 통해 데이터베이스 테이블이 어떻게 구성되는지 알 수 있습니다. 이를 통해 데이터베이스 스키마를 DDL(Data Definition Language)로 자동 생성해주는 기능을 갖습니다.
