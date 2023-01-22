@@ -18,15 +18,6 @@ const Title = styled.h3`
   margin-bottom: 0.75rem;
 `;
 
-const Initiale = styled.span`
-  position: absolute;
-  font-size: 5rem;
-  transform: translate(-50%, -50%);
-  opacity: 0.08;
-  user-select: none;
-  z-index: -1;
-`;
-
 const Excerpt = styled.p`
   grid-column: -1 / 1;
   margin-top: 1rem;
@@ -44,11 +35,9 @@ interface Props {
 }
 
 const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) => {
-  const firstChar = title.charAt(0);
   return (
     <Post>
       <Title>
-        <Initiale>{firstChar}</Initiale>
         <Link to={`/blog/${decodeURI(slug)}`}>{title}</Link>
       </Title>
       <Subline>

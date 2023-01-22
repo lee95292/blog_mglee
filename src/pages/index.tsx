@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import config from '../../config/SiteConfig';
 import { media } from '../utils/media';
 import { getPostsByType } from '../utils/filter';
-
+import {TagDescription, CategoryDescription} from '../models/Description';
 
 
 export default ({ data }: PageProps) => {
@@ -21,10 +21,10 @@ export default ({ data }: PageProps) => {
     else setTag(switchTag);
   }
   const getTagDescription = (tag: string) => {
-    if (config.tagDescription[tag] != null) {
-      return <><strong>{tag.toUpperCase()}</strong> {" " + config.tagDescription[tag]}  </>
+    if (TagDescription[tag] != null) {
+      return <><strong>{tag.toUpperCase()}</strong> {" " + TagDescription[tag]}  </>
     } else {
-      return <strong>{tag}</strong>
+      return "";
     }
   }
 
@@ -59,11 +59,7 @@ export default ({ data }: PageProps) => {
           </GridRow>
           <GridRow spreadStack={true}>
             <LeftColumn>
-              <h2>About My Posts</h2>
-              <p>
-                간결하고 흐름이 잡혀있는, 필자의 생각과 경험/지식이 녹아들어있는 글을 쓰기 위해 노력하고 있습니다.
-              </p>
-              <h2>글 분류</h2>
+              <h3>글 분류</h3>
               <Filter>
                 {config.categories.map((_category:any) => (
                   <CategoryBlock isActive={_category == category} onClick={() => { setCategory(_category) }}>
@@ -73,7 +69,7 @@ export default ({ data }: PageProps) => {
               </Filter>
 
 
-              <h2>태그</h2>
+              <h3>태그</h3>
               <Filter>
                 {Object.entries(tagMap)
                   .sort((a, b) => { return b[1].length - a[1].length })
@@ -88,7 +84,7 @@ export default ({ data }: PageProps) => {
             </LeftColumn>
             <HomepageContent>
 
-              <h2>"{category.toUpperCase()}" Latest Articles <CategoryDesc>{config.categoryDescription[category]} </CategoryDesc></h2>
+              <h2>"{category.toUpperCase()}" Latest Articles <CategoryDesc>{CategoryDescription[category]} </CategoryDesc></h2>
               <div>
                 {/* <strong>{tag != "all" ? tag.toUpperCase() + " -" : ""}</strong> {config.tagDescription[tag]} */}
                 {getTagDescription(tag)}
@@ -193,7 +189,7 @@ const HomepageContent = styled.div<{ center?: boolean }>`
   max-width: 40rem;
   min-width:35rem;
   height:100%;
-  margin-left: 10rem;
+  margin-left: 4rem;
   text-align: ${(props) => (props.center ? 'center' : 'left')};
   animation: 0.5s ease-in-out 0.6s both fadeIn;
 `;
@@ -201,6 +197,7 @@ const LeftColumn = styled.div`
   max-width:24rem;
   height:100%;
   animation: 0.5s ease-in-out 0.6s both fadeIn;
+  font-size: 18px;
   @media ${media.tablet} {
     height:auto;
     max-width:100%;
