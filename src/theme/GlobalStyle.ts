@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background: ${(props) => props.theme.colors.bg};
-    color: ${(props) => props.theme.colors.grey.default};
+    color: ${(props) => props.theme.colors.grey.det};
     word-break: keep-all;
     @media ${media.phone} {
       font-size: 0.8rem;

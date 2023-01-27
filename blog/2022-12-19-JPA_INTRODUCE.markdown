@@ -46,6 +46,8 @@ String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME, TEL) values(?,?,?);";
 pstmt.setString(3,member.getTel());
 ```
 
+<br>
+
 - 조회코드 변경 :  SQL수정 / 필드 가져오는 코드 / 필드 설정하는 코드
 
 ```java
@@ -53,6 +55,7 @@ String sql = "SELECT MEMBER_ID, NAME, TEL from MEMBER WHERE MEMBER_ID = ?";
 String tel = rs.getString("TEL");
 member.setTel("XXX");
 ```
+<br>
 
 - 연관객체 조회: Member가 Team이라는 연관된 데이터를 새로 개발하는 경우, member.getTeam().getTeamName()을 통해 멤버가 속한 팀을 가져오는 마법같은 일은 벌어지지 않습니다. DAO에서 SQL Join을  통해 다른 테이블을 연결해야 가능합니다.
 
@@ -71,18 +74,18 @@ DAO를 통해 데이터에 접근하는 로직만 분리했을 뿐이지, 필드
 JPA는 위에서 소개한 문제들을 효율적으로 해결합니다.
 
 - 조회기능: 객체의 필드를 바탕으로 SELECT SQL 을 생성하고, 그 결과를 Member객체로 생성해 반환합니다.
-
 ```java
 String memberId = "MyeonggGyu Lee";
 Member member = jpa.find(Member.class, memberId);
 ```
+<br>
 
 - 수정기능: “영속상태”에 있는 엔티티의 변경을 감지해, 트랙잭션이 커밋될 때 Update SQL문을 전달합니다.
     - “변경감지”란 EntityManager에서 엔티티를 영속할 때 Snapshot을 저장하고 트랜잭션 커밋 시 이와 비교하므로서 변경을 감지하는 동작이 가능합니다.  (CH3에서 본격적으로 다룬다.)
-
 ```java
 member.setName("Changed_Name");
 ```
+<br>
 
 - 연관객체 조회:  JPA는 연관객체를 조회하는 시점에 적절한 SELECT문을 실행합니다. JPA에서는 단순히 객체그래프를 탐색하는것만으로 수행할 수 있는데, 이를 위해 실제 객체의 참조를 저장하는 프록시를 반환하고, 이를 지연로딩이라 합니다. (H2에서 지연로딩은 프록시와 바이트코드 수정을 통한 방법이 있고, CH8에서 본격적으로 다룬다.)
 
