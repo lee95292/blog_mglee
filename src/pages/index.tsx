@@ -187,7 +187,6 @@ const GridRow: any = styled.div`
 
 const HomepageContent = styled.div<{ center?: boolean }>`
   max-width: 40rem;
-  min-width:35rem;
   height:100%;
   margin-left: 4rem;
   text-align: ${(props) => (props.center ? 'center' : 'left')};

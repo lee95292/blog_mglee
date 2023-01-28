@@ -10,9 +10,8 @@ export const Content = styled.div`
   margin-top: -4rem;
   margin-right:calc(-425px + 50%);
   margin-left:calc(-425px + 50%);
-  width:950px;
+  max-width:950px;
   min-width:0px;
-  max-witdh:100%;
   li{
     margin-bottom:5px;
   }
