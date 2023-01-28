@@ -10,6 +10,7 @@ const config = require('./config/SiteConfig').default;
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
+  trailingSlash: `always`,
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
