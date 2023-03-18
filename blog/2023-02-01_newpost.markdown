@@ -1,7 +1,0 @@
----
-layout: post
-title:  "gRPC의 동작원리와 기본 개념"
-date:   "2022-02-01"
-category: "tech"
-tags: ["gRPC", "gRPC study"]
----
