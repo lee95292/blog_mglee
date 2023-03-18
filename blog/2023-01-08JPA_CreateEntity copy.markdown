@@ -3,7 +3,7 @@ layout: post
 title:  "JPA에서 엔티티를 작성하는 방법"
 date:   "2023-01-08"
 category: "tech"
-tags: ["JPA", "JPA study"]
+tags: ["JPA", "JPA 스터디"]
 ---
 # JPA에서 엔티티를 작성하는 방법
 

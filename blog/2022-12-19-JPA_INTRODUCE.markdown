@@ -3,7 +3,7 @@ layout: post
 title:  "패러다임 불일치 문제와 JPA를 사용하는 이유 "
 date:   "2022-12-19"
 category: "tech"
-tags: ["JPA", "JPA study"]
+tags: ["JPA", "JPA 스터디"]
 ---
 
 # JPA를 사용하는 이유와 패러다임 불일치 문제

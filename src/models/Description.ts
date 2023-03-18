@@ -2,7 +2,7 @@ interface DescriptionType {
     [key: string]: string;
 }
 const TagDescription: DescriptionType = {
-    'JPA study': '김영한 저, 자바 표준 ORM JPA책과 연관된 내용을 공부하면서 배운 내용이나 실험들을 정리합니다'
+    'JPA 스터디': '김영한 저, 자바 표준 ORM JPA책과 연관된 내용을 공부하면서 배운 내용이나 실험들을 정리합니다'
 }
 
 const CategoryDescription: DescriptionType = {

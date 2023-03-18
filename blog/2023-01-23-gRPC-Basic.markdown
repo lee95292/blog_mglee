@@ -3,7 +3,7 @@ layout: post
 title:  "gRPC의 동작원리와 기본 개념"
 date:   "2023-01-23"
 category: "tech"
-tags: ["gRPC", "gRPC study"]
+tags: ["gRPC", "gRPC 스터디"]
 ---
 # gRPC 개요
 

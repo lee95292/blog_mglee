@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "JPA 일대일, 다대다 매핑"
-date:   "2022-01-30"
+date:   "2023-01-30"
 category: "tech"
-tags: ["JPA", "JPA study"]
+tags: ["JPA", "JPA 스터디"]
 ---
 ## 일대일 매핑
 

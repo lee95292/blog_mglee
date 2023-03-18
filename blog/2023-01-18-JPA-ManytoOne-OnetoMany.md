@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "JPA 다대일, 일대다 매핑"
-date:   "2022-01-18"
+date:   "2023-01-18"
 category: "tech"
-tags: ["JPA", "JPA study"]
+tags: ["JPA", "JPA 스터디"]
 ---
 이글에서는 **다대일, 일대다 매핑**과 **연관관계의 주인**에 대해 알아보겠습니다. 
 

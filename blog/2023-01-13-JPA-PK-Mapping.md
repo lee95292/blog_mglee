@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "JPA에서 기본 키 매핑 방법 종류"
-date:   "2022-01-13"
+date:   "2023-01-13"
 category: "tech"
-tags: ["JPA", "JPA study"]
+tags: ["JPA", "JPA 스터디"]
 ---
 
 JPA에서 엔티티와 데이터베이스의  기본 키(Primary Key) 매핑을 알아보겠습니다.
