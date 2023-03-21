@@ -2,7 +2,8 @@
 layout: post
 title: "[blog] Git Hosting을 통한 Jekyll 블로그 관리"
 date: "2018-12-22"
-category: blog
+category: etc
+tags: ["블로그"]
 ---
 
 

@@ -2,7 +2,8 @@
 layout: post
 title:  "[blog/첫글] 마크다운 사용법"
 date:   "2018-12-21"
-category: markdown
+category: etc
+tags: ["블로그","마크다운"]
 ---
 <br>
 안녕하세요~ 마크다운 글 정리로 첫 포스팅을 시작합니다.
