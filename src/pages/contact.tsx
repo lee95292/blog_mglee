@@ -63,7 +63,7 @@ export default () => {
               Linkedin
             </Button>
           </a>
-          <a href="https://lee95292.github.io">
+          <Link to='/resume'>
             <Button big={true}>
               <svg
                 width="1792"
@@ -75,7 +75,7 @@ export default () => {
               </svg>
               Website
             </Button>
-          </a>
+          </Link>
         </Content>
       </Wrapper>
     </Layout>
