@@ -38,7 +38,8 @@ export default ({ data }: PageProps) => {
               <h3>
                 MyeongGyu Lee <br />
               </h3>
-              <p>웹 프로그래밍(Java/Kotlin,JS), 머신러닝/딥러닝(Vision), 컴퓨터공학 지식에 대한 글을 씁니다. </p>
+              <p>모르면 공부하고, 공부했으면 정리하는 블로그</p>
+              <p>웹 프로그래밍(Java/Spring,Javascript), 데이터베이스, 머신러닝/딥러닝(Vision), 컴퓨터공학 지식에 대한 글을 씁니다. </p>
               <Link to="/contact">
                 <Button big={true}>
                   <svg
@@ -133,7 +134,7 @@ export const IndexQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "MM.DD.YYYY")
             category
             tags
           }

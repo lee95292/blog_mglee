@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
-sitemap: https://blog.mglee.dev/sitemap/sitemap-0.xml
+sitemap: https://blog.mglee.dev/sitemap-0.xml
