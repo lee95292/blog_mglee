@@ -1,6 +1,7 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 export default () => {
-  window.location.href = '/assets/resume/resume_0417.pdf';
+  useEffect(() => {
+    window.location.href = '/assets/resume/Resume_05.pdf';
+  });
   return <></>;
 };
